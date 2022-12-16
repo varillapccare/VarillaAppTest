@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <title>Varilla PC Care</title>
+
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+              <li>
+                    <button id="homeBtn" onclick="activateHome()" style="background-color: transparent; border: none; width: 100%; height: 150px;">
+                        <ion-icon style="font-size: 50px;" name="home-outline"></ion-icon>
+                        <br />
+                        家
+                    </button>
+              </li>
+              <li>
+                    <button id="protectionBtn" onclick="activateProtection()" style="color: white; background-color: transparent; border: none; width: 100%; height: 150px;">
+                        <ion-icon style="font-size: 50px;" name="shield-checkmark-outline"></ion-icon>
+                        <br />
+                        保護
+                    </button>
+              </li>
+              <li>
+                    <button id="privacyBtn" onclick="activatePrivacy()" style="color: white; background-color: transparent; border: none; width: 100%; height: 150px;">
+                        <ion-icon style="font-size: 50px;" name="lock-closed-outline"></ion-icon>
+                        <br />
+                        プライバシー
+                    </button>
+              </li>
+              <li>
+                    <button id="networkBtn" onclick="activateNetwork()" style="color: white; background-color: transparent; border: none; width: 100%; height: 150px;">
+                        <ion-icon style="font-size: 50px;" name="globe-outline"></ion-icon>
+                        <br />
+                        インターネット
+                    </button>
+              </li>
+              <li>
+                    <button id="profileBtn" onclick="activateProfile()" style="color: white; background-color: transparent; border: none; width: 100%; height: 150px;">
+                      <ion-icon style="font-size: 50px;" name="person-outline"></ion-icon>
+                        <br />
+                        ユーザー
+                    </button>
+              </li>
+          </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+          <div class="container-fluid">
+
+              <!-- home section -->
+              <div id="homeSection" class="row">
+                  <div class="col-lg-12">
+                      <img src="assets/icon1.png" height="300px" style="margin-top: 50px;"/>
+                      <h1>私たちはあなたを守っています！</h1>
+                      <br />
+                      <br />
+                      <div class="row">
+                            <div class="col-4">
+                              <h1><span id="cpu">00</span> %</h1>
+                            </div>
+                          <div class="col-4">
+                              <h1><span id="mem">00</span> %</h1>
+                            </div>
+                          <div class="col-4">
+                              <h1><span id="total-mem">00</span> GB</h1>
+                            </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-4">
+                          <strong>CPU使用率</strong>
+                        </div>
+                      <div class="col-4">
+                          <strong>メモリ使用量</strong>
+                        </div>
+                      <div class="col-4">
+                          <strong>総メモリ</strong>
+                        </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <button onclick="activateProtection()" class="button-82-pushable" role="button">
+                          <span class="button-82-shadow"></span>
+                          <span class="button-82-edge"></span>
+                          <span class="button-82-front text">
+                            クイックスキャン
+                          </span>
+                        </button>
+                  </div>
+              </div>
+
+              <!-- protection section -->
+              <div id="protectionSection" style="display: none;" class="row">
+                <div class="col-lg-12">
+                  <ion-icon style="font-size: 100px; margin-top: 50px;" name="shield-checkmark-outline"></ion-icon>
+                  <h1 style="margin-top: 30px;">
+                    あなたは私たちと一緒に安全です!
+                  </h1>
+                  <br />
+                  <br />
+                  <br />
+                  <div id="beforescanclicked">
+                    <div>
+                      <button onclick="scanNow()" class="button-82-pushable" role="button">
+                        <span class="button-82-shadow"></span>
+                        <span class="button-82-edge"></span>
+                        <span class="button-82-front text">
+                          クイックスキャン
+                        </span>
+                      </button>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <h4>これにより、コンピュータの破損したファイルやウイルスがスキャンされます。</h4>
+                    <br />
+                    <h5><img src="assets/lightbulb.png" height="40" style="padding-bottom: 10px;"/> VARILLA はシステムを安全かつ安全に保ちます</h5>
+                    <h5><img src="assets/lightbulb.png" height="40" style="padding-bottom: 10px;"/>  PC ドライバを最新の状態に保つ</h5>
+                    <h5><img src="assets/lightbulb.png" height="40" style="padding-bottom: 10px;"/>  VARILLA を使用して破損したファイルをクリーンアップする</h5>
+                    <h5><img src="assets/lightbulb.png" height="40" style="padding-bottom: 10px;"/> PC を新しいもののようにする</h5>
+                  </div>
+                  <div style="display: none;" id="afterscanclicked">
+                    <div class="loading">
+                      <span>スキャン</span>
+                    </div>
+                    <h4 class="scanlist">
+                      <div id="loader1" style="margin-right: 10px;" class="spinner-border text-primary" role="status">
+                      </div>
+                      <ion-icon id="check1" style="color: rgb(0, 199, 0); display: none;" name="checkmark-circle-outline"></ion-icon>
+                      システム詳細
+                    </h4>
+                    <h4 class="scanlist">
+                      <div id="loader2" style="margin-right: 10px;" class="spinner-border text-primary" role="status">
+                      </div>
+                      <ion-icon id="check2" style="color: rgb(0, 199, 0); display: none;" name="checkmark-circle-outline"></ion-icon>
+                      パソコン収納
+                    </h4>
+                    <h4 class="scanlist">
+                      <div id="loader3" style="margin-right: 10px;" class="spinner-border text-primary" role="status">
+                      </div>
+                      <ion-icon id="check3" style="color: rgb(0, 199, 0); display: none;" name="checkmark-circle-outline"></ion-icon>
+                      プライバシーと保護
+                    </h4>
+                    <h4 class="scanlist">
+                      <div id="loader4" style="margin-right: 10px;" class="spinner-border text-primary" role="status">
+                      </div>
+                      <ion-icon id="check4" style="color: rgb(0, 199, 0); display: none;" name="checkmark-circle-outline"></ion-icon>
+                      閲覧履歴
+                    </h4>
+                    <h4 class="scanlist">
+                      <div id="loader5" style="margin-right: 10px;" class="spinner-border text-primary" role="status">
+                      </div>
+                      <ion-icon id="check5" style="color: rgb(0, 199, 0); display: none;" name="checkmark-circle-outline"></ion-icon>
+                      危険性
+                    </h4>
+                    <h4 class="scanlist">
+                      <div id="loader6" style="margin-right: 10px;" class="spinner-border text-primary" role="status">
+                      </div>
+                      <ion-icon id="check6" style="color: rgb(0, 199, 0); display: none;" name="checkmark-circle-outline"></ion-icon>
+                      セキュリティ
+                    </h4>
+                  </div>
+                  <div style="display: none; text-align: left;" id="scancompleted">
+                    <div style="text-align: left; margin-left: 100px;">
+                      <div>
+                        <h3 id="show1" style="font-weight: 700;">システム詳細</h3>
+
+                        <br />
+                        
+                        <div id="show2" class="row">
+                          <div class="col-1">
+                            <img src="assets/windows.png" height="40px"/>
+                          </div>
+                          <div class="col-11">
+                            <h4 style="font-weight: 600;">オペレーティングシステム</h4>
+                          </div>
+                        </div>
+                        <div id="show3" class="row">
+                          <div class="col-1">
+                          </div>
+                          <div class="col-11">
+                            <h6 id="os" style="color: gray">Microsoft Windows 11 Home Single Language English (India)</h6>
+                          </div>
+                        </div>
+                        <br />
+                        <div id="show4" class="row">
+                          <div class="col-1">
+                            <img src="assets/laptop.png" height="40px"/>
+                          </div>
+                          <div class="col-11">
+                            <h4 style="font-weight: 600;">モデル</h4>
+                          </div>
+                        </div>
+                        <div id="show5" class="row">
+                          <div class="col-1">
+                          </div>
+                          <div class="col-11">
+                            <h6 id="model" style="color: gray">Lenovo / 82B5</h6>
+                          </div>
+                        </div>
+                        <br />
+                        <div id="show6" class="row">
+                          <div class="col-1">
+                            <img src="assets/cpu.png" height="40px"/>
+                          </div>
+                          <div class="col-11">
+                            <h4 style="font-weight: 600;">CPU</h4>
+                          </div>
+                        </div>
+                        <div id="show7" class="row">
+                          <div class="col-1">
+                          </div>
+                          <div class="col-11">
+                            <h6 id="cpuInfo" style="color: gray">AMD Ryzen 5 4600H</h6>
+                          </div>
+                        </div>
+                        <br />
+                        <div id="show8" class="row">
+                          <div class="col-1">
+                            <img src="assets/graphics-card.png" height="40px"/>
+                          </div>
+                          <div class="col-11">
+                            <h4 style="font-weight: 600;">GPU</h4>
+                          </div>
+                        </div>
+                        <div id="show9" class="row">
+                          <div class="col-1">
+                          </div>
+                          <div class="col-11">
+                            <h6 id="video" style="color: gray">Intel Integrated Graphics Card</h6>
+                          </div>
+                        </div>
+                      </div>
+
+                      <br />
+                      <br />
+
+                      <div style="text-align: center;" id="freeAccountLocked">
+                        <img src="assets/buypremium.png" onclick="openPaymentScreen()" height="400px"/>
+                      </div>
+                      <div id="premiumAccountUnlocked">
+                        <div>
+                          <h3 id="show10" style="font-weight: 700;">パソコン収納</h3>
+
+                          <br />
+                          
+                          <div id="show11" class="row">
+                            <div class="col-1">
+                              <img src="assets/folder.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">収納タイプ / ストレージ名</h4>
+                            </div>
+                          </div>
+                          <div id="show12" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 id="storage" style="color: gray">SAMSUNG xxxxxxxxxxxx-xxxx</h6>
+                            </div>
+                          </div>
+                          <br />
+                          <div id="show13" class="row">
+                            <div class="col-1">
+                              <img src="assets/pie-chart.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">合計メモリ</h4>
+                            </div>
+                          </div>
+                          <div id="show14" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 id="totalStorageAvailable" style="color: gray">400 GB</h6>
+                            </div>
+                          </div>                                  
+                        </div>
+
+                        <br />
+                        <br />
+
+                        <div>
+                          <h3 id="show15" style="font-weight: 700;">プライバシーと保護</h3>
+
+                          <br />
+                          
+                          <div id="show16" class="row">
+                            <div class="col-1">
+                              <img src="assets/file-explorer.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">破損したファイル</h4>
+                            </div>
+                          </div>
+                          <div id="show17" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 style="color: gray">401影響を受けるファイル</h6>
+                            </div>
+                          </div>
+                          <br />
+                          <div id="show18" class="row">
+                            <div class="col-1">
+                              <img src="assets/data-leak.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">機密データ漏洩</h4>
+                            </div>
+                          </div>
+                          <div id="show19" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 style="color: gray">保護されていない3GBの機密データ</h6>
+                            </div>
+                          </div>
+                          <br />
+                          <div id="show20" class="row">
+                            <div class="col-1">
+                              <img src="assets/warning.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">マルウェアの脅威</h4>
+                            </div>
+                          </div>
+                          <div id="show21" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 style="color: gray">59ファイルは、PCが脆弱になっています</h6>
+                            </div>
+                          </div>                                  
+                        </div>
+
+                        <br />
+                        <br />
+
+                        <div>
+                          <h3 id="show22" style="font-weight: 700;">閲覧履歴</h3>
+
+                          <br />
+                          
+                          <div id="show23" class="row">
+                            <div class="col-1">
+                              <img src="assets/file-explorer.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">悪意のあるダウンロード</h4>
+                            </div>
+                          </div>
+                          <div id="show24" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 style="color: gray">38悪意のあるダウンロードされたファイル</h6>
+                            </div>
+                          </div>
+                          <br />
+                          <div id="show25" class="row">
+                            <div class="col-1">
+                              <img src="assets/data-leak.png" height="40px"/>
+                            </div>
+                            <div class="col-11">
+                              <h4 style="font-weight: 600;">検索履歴の消去</h4>
+                            </div>
+                          </div>
+                          <div id="show26" class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-11">
+                              <h6 style="color: gray">3GBの不要なキャッシュファイル</h6>
+                            </div>
+                          </div>                                
+                        </div>
+                      </div>
+
+                      <br />
+                      <br />
+                    </div>
+                    
+                    <div id="protectionBottomNotActive">
+                      <p class="marquee">
+                        <span style="color: #0084ff;">VARILLA PRO を有効にする - この数の私達に連絡して下さい <strong class="tfn">050-5539-5969</strong> ( フリーダイヤル番号 ) - &nbsp;</span>
+                      </p>
+                      <p class="marquee marquee2">
+                        <span style="color: #0084ff;">VARILLA PRO を有効にする - この数の私達に連絡して下さい <strong class="tfn">050-5539-5969</strong> ( フリーダイヤル番号 ) - &nbsp;</span>
+                      </p>
+                    </div>
+
+                    <div style="text-align: center;" id="protectionBottomActive">
+                      <button class="button-82-pushable" role="button">
+                        <span class="button-82-shadow"></span>
+                        <span class="button-82-edge"></span>
+                        <span class="button-82-front text">
+                          Varillaはあなたを保護しています !
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- privacy section -->
+              <div id="privacySection" style="display: none;" class="row">
+                <div class="col-lg-12">
+                  <ion-icon style="font-size: 100px; margin-top: 50px;" name="lock-closed-outline"></ion-icon>
+                  <h1 style="margin-top: 30px;">
+                    パスワードセキュリティ
+                  </h1>
+                  <br />  
+                  <br />
+                  <div class="row">
+                    <div class="col-6">
+                      <h5>コンピュータのパスワード</h5>
+                    </div>
+                    <div class="col-6">
+                      <input id="pass1" placeholder="パスワード" type="password" style="margin-right: 10px; width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      <ion-icon onclick="togglepass1()" id="eye1" style="cursor: pointer;" name="eye-off-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <br />  
+                  <br />
+                  <div class="row">
+                    <div class="col-6">
+                      <h5>無線WiFiのパスワード</h5>
+                    </div>
+                    <div class="col-6">
+                      <input id="pass2" placeholder="パスワード" type="password" style="margin-right: 10px; width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      <ion-icon onclick="togglepass2()" id="eye2" style="cursor: pointer;" name="eye-off-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <br />  
+                  <br />
+                  <div class="row">
+                    <div class="col-6">
+                      <h5>Gmail のパスワード</h5>
+                    </div>
+                    <div class="col-6">
+                      <input id="pass3" placeholder="パスワード" type="password" style="margin-right: 10px; width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      <ion-icon onclick="togglepass3()" id="eye3" style="cursor: pointer;" name="eye-off-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <br />  
+                  <br />
+                  <div class="row">
+                    <div class="col-6">
+                      <h5>電話のパスワード</h5>
+                    </div>
+                    <div class="col-6">
+                      <input id="pass4" placeholder="パスワード" type="password" style="margin-right: 10px; width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      <ion-icon onclick="togglepass4()" id="eye4" style="cursor: pointer;" name="eye-off-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <button onclick="savePasswords()" type="button" style="border-radius: 30px;" class="btn btn-outline-primary">変更を保存</button>
+                  <button onclick="deletePasswords()" type="button" style="border-radius: 30px;" class="btn btn-outline-danger">すべて削除</button>
+                </div>
+              </div>
+
+              <!-- network section -->
+              <div id="networkSection" style="display: none;" class="row">
+                <div class="col-lg-12">
+                  <ion-icon style="font-size: 100px; margin-top: 50px;" name="globe-outline"></ion-icon>
+                  <h1 style="margin-top: 30px;">
+                    インターネット
+                  </h1>
+                  <br />
+
+                  <h3>あなたの現在のネットワーク情報！</h3>
+                  <br />
+                  <br />
+                  <div class="row">
+                    <div class="col-4">
+                      <h3><span id="ping">40</span> ms</h3>
+                    </div>
+                    <div class="col-4">
+                      <h3><span id="download">40</span> Mbps</h3>
+                    </div>
+                    <div class="col-4">
+                      <h3><span id="upload">40</span> Mbps</h3>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-4">
+                      <h5 style="color: rgb(82, 196, 26);">
+                        レイテンシー
+                      </h5>
+                    </div>
+                    <div class="col-4">
+                      <h5 style="color: #1890ff;">
+                        ダウンロード
+                      </h5>
+                    </div>
+                    <div class="col-4">
+                      <h5 style="color: rgb(82, 196, 26);">
+                        アップロード
+                      </h5>
+                    </div>
+                  </div>
+                  <br />
+
+                  <!-- browsing history section -->
+                  <h3>あなたの最近の閲覧履歴！</h3>
+                  <br />
+                  <br />
+
+                  <!-- list of browsing history -->
+                  <div id="browsinghistorylist" class="row">
+                    
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- profile section -->
+              <div id="profileSection" style="display: none;" class="row">
+                <div class="col-lg-12">
+                  <ion-icon style="font-size: 100px; margin-top: 50px;" name="person-outline"></ion-icon>
+                  <h1 style="margin-top: 30px;">
+                    ユーザー
+                  </h1>
+                  <br />
+                  <br />
+
+                  <div id="noActivationCode">
+                    <span style="color: #1890ff; font-weight: 900; font-size: 30px;">VARILLAを有効にしてください</span>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <input type="text" id="activationCode" placeholder="Activation Code" style="width: 200px; border: 1px solid gray; border-radius: 30px; padding: 10px; height: 50px;" />
+                    <br />
+                    <br />
+                    <button id="getProfileBtn" onclick="getProfile()" style="border-radius: 30px;" class="btn btn-outline-primary">Activate</button>
+                    <br />
+                    <br />
+                    <strong>* プレミアム会員のみ</strong>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div>
+                      <p class="marquee">
+                        <span style="color: #0084ff;">VARILLA PRO を有効にする - この数の私達に連絡して下さい <strong class="tfn">050-5539-5969</strong> ( フリーダイヤル番号 ) - &nbsp;</span>
+                      </p>
+                      <p class="marquee marquee2">
+                        <span style="color: #0084ff;">VARILLA PRO を有効にする - この数の私達に連絡して下さい <strong class="tfn">050-5539-5969</strong> ( フリーダイヤル番号 ) - &nbsp;</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="hasActivationCode" style="display: none;">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5>名前</h5>
+                      </div>
+                      <div class="col-6">
+                        <input id="name" type="text" style="width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                      <div class="col-6">
+                        <h5>電話番号</h5>
+                      </div>
+                      <div class="col-6">
+                        <input id="phone" type="text" style="width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                      <div class="col-6">
+                        <h5>電話番号 2</h5>
+                      </div>
+                      <div class="col-6">
+                        <input id="phone2" type="text" style="width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                      <div class="col-6">
+                        <h5>住所</h5>
+                      </div>
+                      <div class="col-6">
+                        <input id="address" type="text" style="width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                      <div class="col-6">
+                        <h5>郵便番号</h5>
+                      </div>
+                      <div class="col-6">
+                        <input id="zip" type="text" style="width: 200px; border-radius: 20px; border: 1px solid gray; padding: 5px;"/>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                      <div class="col-6">
+                        <h5>まで有効</h5>
+                      </div>
+                      <div class="col-6">
+                        <span id="validtill"></span>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                    <button onclick="logout()" type="button" style="border-radius: 30px;" class="btn btn-outline-danger">ログアウト</button>
+                  </div>
+                 
+                </div>
+              </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        // fetch tfn at load of screen
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", `https://varillapccareapi.herokuapp.com/phone`, false); // false for synchronous request
+        xmlHttp.send(null);
+        const tfnInitial = JSON.parse(xmlHttp.response)[0].phone || "050-5539-5969";
+
+        const els = document.getElementsByClassName("tfn");
+        for (let i = 0; i < els.length; i++) {
+          els[i].innerHTML = tfnInitial || "050-5539-5969";
+        }
+
+        // fetch tfn every 30 minutes and update it on the screen
+        setInterval(() => {
+          let xmlHttp = new XMLHttpRequest();
+          xmlHttp.open("GET", `https://varillapccareapi.herokuapp.com/phone`, false); // false for synchronous request
+          xmlHttp.send(null);
+          const tfn = JSON.parse(xmlHttp.response)[0].phone || "050-5539-5969";
+
+          const elements = document.getElementsByClassName("tfn");
+          for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = tfn || "050-5539-5969";
+          }
+        }, 1800000);
+    </script>
+  </body>
+</html>

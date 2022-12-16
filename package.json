@@ -1,0 +1,47 @@
+{
+  "name": "varilla",
+  "version": "1.0.0",
+  "description": "Varilla PC Care",
+  "main": "main.js",
+  "repository": "https://github.com/varillapccare/VarillaApp",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder -w",
+    "release": "electron-builder -w -p onTagOrDraft",
+    "win-cert": "electron-builder create-self-signed-cert -p varilla"
+  },
+  "author": "Varilla",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.7",
+    "electron-builder": "^22.14.5"
+  },
+  "build": {
+    "productName": "Varilla PC Care",
+    "appId": "Varilla",
+    "copyright": "Copyright varilla.com",
+    "publish": {
+      "provider": "github"
+    },
+    "win": {
+      "publisherName": "Varilla",
+      "certificateFile": "private/varilla.pfx",
+      "certificatePassword": ""
+    },
+    "nsis": {
+      "oneClick": true,
+      "shortcutName": "Varilla PC Care",
+      "language": "0x0411",
+      "installerLanguages": [
+        "ja-JP"
+      ],
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "dependencies": {
+    "node-browser-history": "^2.4.6",
+    "os-utils": "0.0.14",
+    "systeminformation": "^5.10.0"
+  }
+}
